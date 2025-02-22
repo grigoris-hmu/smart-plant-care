@@ -37,6 +37,27 @@ def signal_handler(sig, frame):
         beat_process.terminate()
     sys.exit(0)
 
+
+# Function to start the WebSocket server
+def start_websocket_server():
+    try:
+        # Run the websocket.js script
+        subprocess.run(["node", "websocket.js"], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"WebSocket server failed to start: {e}")
+    except FileNotFoundError:
+        print("Node.js is not installed or 'websocket.js' file is missing.")
+
+# Start the WebSocket server in a separate thread
+websocket_thread = threading.Thread(target=start_websocket_server)
+websocket_thread.daemon = True  # Daemonize thread to exit when the main program exits
+websocket_thread.start()
+
+@app.route('/')
+def index():
+    return "Flask app running alongside WebSocket server!"
+
+
 if __name__ == '__main__':
     # Register signal handlers for graceful termination
     signal.signal(signal.SIGINT, signal_handler)  # Handle Ctrl+C

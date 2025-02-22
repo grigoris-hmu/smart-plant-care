@@ -37,7 +37,8 @@
           {% if sensors %}
             <p class="main-crop-data">{{_('Sensors')}}:<ul>
             {% for sensor in sensors %}
-              <li>ID: {{ sensor.id }}, {{_('Possition')}}: {{_('Longtitute')}} {{sensor.loc_longtitute}}, {{_('Latitude')}} {{sensor.loc_latitude}} <a href="{{ url_for('sensor.get_sensor_data', sensor_id=sensor.id) }}">{{_('Sensor Data')}}</a></li>
+              <li>ID: {{ sensor.id }}, {{_('Possition')}}: {{_('Longtitute')}} {{sensor.loc_longtitute}}, {{_('Latitude')}} {{sensor.loc_latitude}}</li>
+              <li> <a href="{{ url_for('sensor.get_sensor_data', sensor_id=sensor.id) }}">{{_('Sensor Data')}}</a></li>
             {% endfor %}
             </ul></p>
           {% endif %}
