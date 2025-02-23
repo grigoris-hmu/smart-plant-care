@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{_('Live Weather Data')}} - Smart Plant Care
+{% endblock title %}
+
+{% block content %}
+
+    <h2 class="aba_header">{{_('Crop Name')}}: {{ crop.name }}</h2>
+
+    {% if weather_data %}
+
+        <hr>
+        <ul>
+        {% for key, value in weather_data.items(): %}
+        <li><strong>{{ key }}</strong> : {{ value }}</li>
+        {% endfor %}
+        </ul>
+                
+    {% endif %}
+
+{% endblock %}

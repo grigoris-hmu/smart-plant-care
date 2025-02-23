@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{_('Weather Data')}} - Smart Plant Care
+{% endblock title %}
+
+{% block content %}
+
+<h2 class="aba_header">{{_('Crop Name')}}: {{ crop.name }}</h2>
+
+<div>
+    <link rel="stylesheet" href="https://cdn.bokeh.org/bokeh/release/bokeh-3.6.2.min.css" type="text/css">
+    <!-- Bokeh JavaScript -->
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.6.2.min.js"></script>
+    
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.6.2.min.js"
+        crossorigin="anonymous"></script>
+    
+    {{script | safe}}
+    {{div|safe}}
+</div>
+
+{% endblock %}

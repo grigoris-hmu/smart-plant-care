@@ -32,7 +32,10 @@
             {{_('Crop type')}}: {{ crop_type.name | safe }}, {{_('Soil type')}}: {{ soil_type.name | safe }}
           </p>
 
-          <p class="main-crop-data"><a href="{{ url_for('irrigation.irrigation_graph', crop_id=crop.id) }}">{{_('Readings graph')}}</a></p>
+          <p class="main-crop-data"><a href="{{ url_for('weather.get_weather_data', crop_id=crop.id) }}">{{_('Live Weather')}}</a></p>
+          <p class="main-crop-data"><a href="{{ url_for('weather.temperature_graph', crop_id=crop.id) }}">{{_('Temperature Graph')}}</a>
+          <p class="main-crop-data"><a href="{{ url_for('weather.rain_graph', crop_id=crop.id) }}">{{_('Rain Graph')}}</a></p>
+          <p class="main-crop-data"><a href="{{ url_for('irrigation.irrigation_graph', crop_id=crop.id) }}">{{_('Irrigation graph')}}</a></p>
           
           {% if sensors %}
             <p class="main-crop-data">{{_('Sensors')}}:<ul>

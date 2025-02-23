@@ -2,10 +2,12 @@ amqp==5.3.1
 async-timeout==5.0.1
 babel==2.16.0
 bcrypt==4.2.1
+beautifulsoup4==4.13.3
 billiard==4.2.1
 blinker==1.9.0
 bokeh==3.6.3
 branca==0.8.1
+bs4==0.0.2
 celery==5.4.0
 certifi==2024.12.14
 cffi==1.17.1
@@ -48,6 +50,7 @@ redis==5.2.1
 requests==2.32.3
 scipy==1.15.0
 six==1.17.0
+soupsieve==2.6
 SQLAlchemy==2.0.36
 tornado==6.4.2
 typing_extensions==4.12.2

@@ -47,6 +47,10 @@ app.register_blueprint(sensor_bp)
 from .irrigation import irrigation as irrigation_bp
 app.register_blueprint(irrigation_bp)
 
+# blueprint for parts of app
+from .weather import weather as weather_bp
+app.register_blueprint(weather_bp)
+
 from SmartPlantCare import routes
 
 # blueprint for parts of app
