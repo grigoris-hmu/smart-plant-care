@@ -1,0 +1,253 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Container styling */
+.container {
+    max-width: 1400px; /* Wider container */
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+/* Connection status styling */
+.connection-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #555;
+}
+
+.indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ccc;
+}
+
+.indicator.active {
+    background-color: #28a745; /* Green for active connection */
+}
+
+.indicator.inactive {
+    background-color: #dc3545; /* Red for inactive connection */
+}
+
+/* Grid container for wide layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1.5fr; /* Three columns: controls, table, logs */
+    gap: 20px; /* Spacing between columns */
+}
+
+/* Card styling */
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Controls section (left column) */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Spacing between cards */
+}
+
+/* Valve control styling */
+.valve-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff; /* Blue for open state */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.valve-button.off {
+    background-color: #6c757d; /* Gray for closed state */
+}
+
+.valve-button .icon {
+    font-size: 24px;
+}
+
+.valve-button:hover {
+    opacity: 0.9;
+}
+
+/* Valve table styling */
+.valve-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.valve-table th,
+.valve-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.valve-table th {
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+}
+
+.valve-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* LED control styling */
+#ledControl {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.ledButton {
+    flex: 1;
+    padding: 10px;
+    background-color: #17a2b8; /* Teal for LED buttons */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.ledButton.off {
+    background-color: #6c757d; /* Gray for off state */
+}
+
+.ledButton:hover {
+    opacity: 0.9;
+}
+
+/* LED status styling */
+#ledStatus {
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+}
+
+
+.Sensor-table-container {
+    max-height: 800px; /* Fixed height for the table container */
+    overflow-y: auto; /* Add vertical scrollbar */
+}
+
+/* Table container with scrollbar */
+.table-container {
+    max-height: 377px; /* Fixed height for the table container */
+    overflow-y: auto; /* Add vertical scrollbar */
+}
+
+/* Table styling */
+.sensor-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.sensor-table th,
+.sensor-table td {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.sensor-table th {
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+    position: sticky;
+    top: 0; /* Make the header sticky */
+}
+
+.sensor-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Logger styling (right column) */
+.logger {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.log-messages {
+    max-height: 600px; /* Fixed height for log messages */
+    overflow-y: auto; /* Add vertical scrollbar */
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.log-messages p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Input area styling */
+#inputArea {
+    display: flex;
+    gap: 10px;
+}
+
+#messageInput {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+#sendButton {
+    padding: 10px 20px;
+    background-color: #28a745; /* Green for send button */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+#sendButton:hover {
+    background-color: #218838;
+}
