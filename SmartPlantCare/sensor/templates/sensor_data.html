@@ -5,11 +5,240 @@
 {% endblock title %}
 
 {% block content %}
-
+    <div class="container">
+        <!-- Crop and Sensor Information -->
     <h2 class="aba_header">{{_('Crop Name')}}: {{ crop.name }}</h2>
     <hr>
-    <h4 class="aba_header">ID: {{ sensor.id }}, {{_('Possition')}}: {{_('Longtitute')}} {{sensor.loc_longtitute}}, {{_('Latitude')}} {{sensor.loc_latitude}}</h4>
-    <h3 class="aba_header">{{_('Sensor Value')}}: {{ sensor_data }}</h3>
+        <h4 class="aba_header">ID: {{ sensor.id }}, {{_('Position')}}: {{_('Longitude')}}: {{sensor.loc_longtitute}}, {{_('Latitude')}}: {{sensor.loc_latitude}}</h4>
+        <!-- <h3 class="aba_header">{{_('Sensor Value')}}: {{ sensor_data }}</h3> -->
     <hr>
 
+        <!-- Sensor Dashboard -->
+        <h1>Sensor Dashboard</h1>
+        <link rel="stylesheet" href="../../static/css/dashboard.css">
+        <div class="connection-status">
+            <span>Connection Status:</span>
+            <span id="connectionIndicator" class="indicator inactive"></span>
+        </div>
+
+        <!-- Wide Layout Grid -->
+        <div class="grid-container">
+            <!-- Left Column: Controls -->
+            <div class="controls">
+                <div class="card">
+                    <h2><center>Valve Control</center></h2>
+                    <button id="toggleValveButton" class="valve-button">
+                        <span class="icon">🚰</span>
+                        <span class="text">Open Water Valve</span>
+                    </button>
+                </div>
+
+                <!-- New Valve Data Table -->
+                <div class="card">
+                    <h2><center>Valve Data</center></h2>
+                    <div class="table-container"> <!-- Scrollable container -->
+                        <table class="valve-table">
+                            <thead>
+                                <tr>
+                                    <th>Timestamp</th>
+                                    <th>Valve Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="valveDataBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2><center>Data</center></h2>
+                    <div id="ledControl">
+                        <button class="ledButton" id="turnOnButton"><i class="fas fa-lightbulb"></i> Fetch Data</button>
+                        <button class="ledButton off" id="turnOffButton"><i class="fas fa-power-off"></i> Empty</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle Column: Sensor Data Table -->
+            <div class="card Sensor-table-container">
+                <h2><center>Sensor Data</center></h2>
+                <table class="sensor-table">
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Humidity</th>
+                            <th>Soil Moisture</th>
+                        </tr>
+                    </thead>
+                    <tbody id="messagesBody">
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Right Column: Logs and Input Area -->
+            <div class="card logger">
+                <h2><center>Logs</center></h2>
+                <div id="logMessages" class="log-messages"></div> <!-- Log messages container -->
+                <div id="inputArea">
+                    <input type="text" id="messageInput" placeholder="Type a message...">
+                    <button id="sendButton"><i class="fas fa-paper-plane"></i> Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        let ws;
+        const maxRows = 46; // Maximum number of rows to display
+        const maxLogEntries = 46; // Maximum number of log entries to display
+        const connectionIndicator = document.getElementById('connectionIndicator');
+        const toggleValveButton = document.getElementById('toggleValveButton');
+        const logMessages = document.getElementById('logMessages');
+        const valveDataBody = document.getElementById('valveDataBody'); // Valve data table body
+        let valveState = false; // false = closed, true = open
+
+        function connectWebSocket() {
+            ws = new WebSocket('ws://192.168.231.22:8081');
+
+            ws.onopen = () => {
+                console.log("WebSocket connection opened");
+                addMessage("WebSocket connected", "-", "-");
+                connectionIndicator.classList.remove('inactive');
+                connectionIndicator.classList.add('active');
+                addLog("WebSocket connection initialized.");
+            };
+
+            ws.onclose = () => {
+                console.log("WebSocket connection closed");
+                addMessage("WebSocket disconnected", "-", "-");
+                connectionIndicator.classList.remove('active');
+                connectionIndicator.classList.add('inactive');
+                addLog("WebSocket connection disconnected.");
+                setTimeout(connectWebSocket, 1000); // Reconnect after 1 second
+            };
+
+            ws.onerror = (error) => {
+                console.error("WebSocket error:", error);
+                addMessage("WebSocket error: " + error.message, "-", "-");
+                connectionIndicator.classList.remove('active');
+                connectionIndicator.classList.add('inactive');
+                addLog("WebSocket connection error: " + error.message);
+            };
+
+            ws.onmessage = async (event) => {
+                let messageContent = event.data instanceof Blob ? await event.data.text() : event.data;
+                console.log("Received message:", messageContent);
+
+                try {
+                    const data = JSON.parse(messageContent);
+                    addMessage(new Date().toLocaleTimeString(), data.humidity, data.soil_moisture);
+                } catch (error) {
+                    addMessage("Invalid data format received", "-", "-");
+                }
+
+                if (messageContent === "GET_DATA") {
+                    ledStatus.textContent = "Data Received";
+                }
+            };
+        }
+
+        // Initial connection
+        connectWebSocket();
+
+        // Toggle valve button
+        toggleValveButton.addEventListener('click', () => {
+            valveState = !valveState;
+            const valveMessage = valveState ? "OPEN_VALVE" : "CLOSE_VALVE";
+            if (ws.readyState === WebSocket.OPEN) {
+                ws.send(valveMessage);
+                toggleValveButton.querySelector('.text').textContent = valveState ? "Close Water Valve" : "Open Water Valve";
+                toggleValveButton.classList.toggle('off', !valveState);
+                toggleValveButton.classList.toggle('on', valveState);
+                addLog(`Water valve ${valveState ? "opened" : "closed"}.`);
+
+                // Add valve status to the valve data table
+                const row = valveDataBody.insertRow(0);
+                row.insertCell(0).textContent = new Date().toLocaleTimeString();
+                row.insertCell(1).textContent = valveState ? "Open" : "Closed";
+
+                // Remove the oldest row if the number of rows exceeds the limit
+                if (valveDataBody.rows.length > maxRows) {
+                    valveDataBody.deleteRow(valveDataBody.rows.length - 1);
+                }
+            } else {
+                console.log("WebSocket is not open.");
+            }
+        });
+
+        // Add log message
+        function addLog(message) {
+            const logEntry = document.createElement('p');
+            logEntry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logMessages.appendChild(logEntry);
+            logMessages.scrollTop = logMessages.scrollHeight; // Auto-scroll to the bottom
+
+            // Remove the oldest log entry if the number of entries exceeds the limit
+            if (logMessages.children.length > maxLogEntries) {
+                logMessages.removeChild(logMessages.firstChild);
+            }
+        }
+
+        const messagesBody = document.getElementById('messagesBody');
+        const sendButton = document.getElementById('sendButton');
+        const messageInput = document.getElementById('messageInput');
+        const turnOnButton = document.getElementById('turnOnButton');
+        const turnOffButton = document.getElementById('turnOffButton');
+        const ledStatus = document.getElementById('ledStatus');
+
+        sendButton.addEventListener('click', () => {
+            const message = messageInput.value.trim();
+            if (message) {
+                if (ws.readyState === WebSocket.OPEN) {
+                    ws.send(message);
+                    addLog(`[Sent] ${message}`);
+                    messageInput.value = ''; // Clear input after sending
+                } else {
+                    addLog("[Error] WebSocket is not connected.");
+                }
+            } else {
+                addLog("Message is empty. Please type a message before sending.");
+            }
+        });
+
+        messageInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                sendButton.click();
+            }
+        });
+
+        turnOnButton.addEventListener('click', () => {
+            if (ws.readyState === WebSocket.OPEN) {
+                ws.send('GET_DATA');
+            } else {
+                console.log("WebSocket is not open.");
+            }
+        });
+
+        turnOffButton.addEventListener('click', () => {
+            if (ws.readyState === WebSocket.OPEN) {
+                ws.send('EMPTY');
+            } else {
+                console.log("WebSocket is not open.");
+            }
+        });
+
+        function addMessage(timestamp, humidity, soilMoisture) {
+            // Insert new row at the top of the table
+            const row = messagesBody.insertRow(0);
+            row.insertCell(0).textContent = timestamp;
+            row.insertCell(1).textContent = humidity;
+            row.insertCell(2).textContent = soilMoisture;
+
+            // Remove the oldest row if the number of rows exceeds the limit
+            if (messagesBody.rows.length > maxRows) {
+                messagesBody.deleteRow(messagesBody.rows.length - 1);
+            }
+        }
+    </script>
 {% endblock %}
