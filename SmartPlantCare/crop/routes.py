@@ -14,6 +14,7 @@ from .. import db
 from .create_map import create_map
 from .save_image import save_image
 from SmartPlantCare import app
+from ..sensor.models import Valve
 
 @crop.route('/get_prefectures')
 @login_required
@@ -97,6 +98,28 @@ def new_crop():
                         )
 
         db.session.add(crop)
+        db.session.commit()
+        
+        ### creation of its Valve.
+        # Fetch the last inserted Valve to determine the next port number for our valce
+        last_valve = db.session.query(Valve).order_by(Valve.id.desc()).first()
+
+        if last_valve:
+            last_port = int(last_valve.hwaddr.split(":")[-1])  # Extract last port number
+        else:
+            last_port = 8083  # Default starting port from here and up we play
+
+        next_port = last_port + 1  # Increment port for new Valve
+
+        # Create a new Valve associated with this Crop
+        valve = Valve(
+            crop_id=crop.id,
+            status=False,  # Default status
+            counter=0,  # Default counter
+            hwaddr=f"ws://192.168.231.22:{next_port}"  # Assign new hwaddr with incremented port
+        )
+
+        db.session.add(valve)
         db.session.commit()
 
         if len(form.crop_map.data) > 0:
