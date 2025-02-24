@@ -1,15 +1,15 @@
 # Greek translations for PROJECT.
-# Copyright (C) 2025 ORGANIZATION
+# Copyright (C) Ntagkinis Nikolaos, Markakis Grigorios, Mouzakitis Nikolaos, Koutsourelakis Charilaos
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#  Markakis Grigorios <mtp329@edu.hmu.gr>, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-01-04 00:56+0200\n"
-"PO-Revision-Date: 2025-01-04 00:57+0200\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2025-02-24 20:54+0200\n"
+"PO-Revision-Date: 2025-02-24 20:57+0200\n"
+"Last-Translator: Markakis Grigorios <mtp329@edu.hmu.gr>\n"
 "Language: el\n"
 "Language-Team: el <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -22,140 +22,285 @@ msgstr ""
 msgid "Please login to be able to view this page."
 msgstr "Παρακαλούμε κάντε σύνδεση για να μπορέσετε να δείτε αυτή τη σελίδα."
 
-#: SmartPlantCare/crop/routes.py:108
-msgid "The crop titled: {title} was successfully created"
-msgstr "Η καλλιέργεια με τίτλο: {title} δημιουργήθηκε με επιτυχία"
+#: SmartPlantCare/crop/create_map.py:39
+msgid "Click from more information"
+msgstr "Κάντε κλικ για περισσότερες πληροφορίες"
 
-#: SmartPlantCare/crop/routes.py:113
+#: SmartPlantCare/crop/routes.py:131 SmartPlantCare/crop/routes.py:215
+msgid ""
+"ERROR: Invalid coordinates format. Expecting a list of [latitude, "
+"longitude] pairs."
+msgstr ""
+"ΣΦΑΛΜΑ: Μη έγκυρη μορφή συντεταγμένων. Αναμένεται μια λίστα με "
+"ζεύγη [γεωγραφικό πλάτος, γεωγραφικό μήκος]."
+
+#: SmartPlantCare/crop/routes.py:148 SmartPlantCare/crop/routes.py:310
+msgid "Error saving Crop Coordinates Data"
+msgstr "Σφάλμα αποθήκευσης συντεταγμένων καλλιέργειας"
+
+#: SmartPlantCare/crop/routes.py:153 SmartPlantCare/crop/routes.py:316
+msgid "Error handling Crop Coordinates Data"
+msgstr "Σφάλμα χειρισμού συντεταγμένων καλλιέργειας"
+
+#: SmartPlantCare/crop/routes.py:156
+msgid "The crop <b>{name}</b> was successfully created"
+msgstr "Η καλλιέργεια <b>{name}</b> δημιουργήθηκε επιτυχώς"
+
+#: SmartPlantCare/crop/routes.py:160
 msgid "Αdd new Crop"
 msgstr "Εισαγωγή Νέας Καλλιέργειας"
 
-#: SmartPlantCare/crop/routes.py:225
+#: SmartPlantCare/crop/routes.py:210 SmartPlantCare/crop/routes.py:263
+msgid ""
+"Exception: Invalid coordinates format. Expecting a list of [latitude, "
+"longitude] pairs."
+msgstr ""
+"Εξαίρεση: Συντεταγμένες: Μη έγκυρη μορφή συντεταγμένων. Αναμένεται μια "
+"λίστα ζευγών [γεωγραφικό πλάτος, γεωγραφικό μήκος].""
+
+#: SmartPlantCare/crop/routes.py:327
+msgid "Error deleting Crop Coordinates Data"
+msgstr "Σφάλμα διαγραφής δεδομένων συντεταγμένων καλλιέργειας"
+
+#: SmartPlantCare/crop/routes.py:339
 msgid "The crop was successfully edited"
 msgstr "Η επεξεργασία της καλλιέργειας έγινε με επιτυχία"
 
-#: SmartPlantCare/crop/routes.py:229
+#: SmartPlantCare/crop/routes.py:343
 msgid "Edit Crop"
 msgstr "Επεξεργασία Καλλιέργειας"
 
-#: SmartPlantCare/crop/routes.py:253
+#: SmartPlantCare/crop/routes.py:359
 msgid "The crop was successfully deleted."
 msgstr "Η καλλιέργεια διεγράφη με επιτυχία."
 
-#: SmartPlantCare/crop/routes.py:257
+#: SmartPlantCare/crop/routes.py:363
 msgid "The crop was not found."
 msgstr "Η καλλιέργεια δεν βρέθηκε."
 
-#: SmartPlantCare/crop/forms/newCropForm.py:23
-#: SmartPlantCare/user/forms/accountUpdateForm.py:24
+#: SmartPlantCare/crop/forms/newCropForm.py:17
+#: SmartPlantCare/user/forms/accountUpdateForm.py:18
 msgid "The size of the image cannot exceed {max_size} MB"
 msgstr "Το μέγεθος του αρχείου εικόας δεν μπορεί να υπερβαίνει τα {max_size} MB"
 
-#: SmartPlantCare/crop/forms/newCropForm.py:30
-msgid "Crop Title"
-msgstr "Τίτλος Καλλιέργειας"
+#: SmartPlantCare/crop/forms/newCropForm.py:25
+#: SmartPlantCare/irrigation/templates/irrigation_graph.html:9
+#: SmartPlantCare/sensor/templates/sensor_data.html:10
+#: SmartPlantCare/weather/templates/rain_data.html:9
+#: SmartPlantCare/weather/templates/temperature_data.html:9
+#: SmartPlantCare/weather/templates/weather_data.html:9
+msgid "Crop Name"
+msgstr "Όνομα Καλλιέργειας"
 
-#: SmartPlantCare/crop/forms/newCropForm.py:31
-#: SmartPlantCare/crop/forms/newCropForm.py:37
+#: SmartPlantCare/crop/forms/newCropForm.py:26
+#: SmartPlantCare/crop/forms/newCropForm.py:35
+#: SmartPlantCare/crop/forms/newCropForm.py:40
+#: SmartPlantCare/crop/forms/newCropForm.py:45
 #: SmartPlantCare/crop/forms/newCropForm.py:50
-#: SmartPlantCare/crop/forms/newCropForm.py:56
-#: SmartPlantCare/user/forms/accountUpdateForm.py:37
-#: SmartPlantCare/user/forms/accountUpdateForm.py:41
+#: SmartPlantCare/crop/forms/newCropForm.py:55
+#: SmartPlantCare/irrigation/forms/irrigationGraph.py:10
+#: SmartPlantCare/irrigation/forms/irrigationGraph.py:14
+#: SmartPlantCare/irrigation/forms/newBulletin.py:13
+#: SmartPlantCare/irrigation/forms/newBulletin.py:17
+#: SmartPlantCare/irrigation/forms/newBulletin.py:21
+#: SmartPlantCare/user/forms/accountUpdateForm.py:42
+#: SmartPlantCare/user/forms/accountUpdateForm.py:46
+#: SmartPlantCare/user/forms/accountUpdateForm.py:50
 #: SmartPlantCare/user/forms/loginForm.py:9
 #: SmartPlantCare/user/forms/loginForm.py:13
-#: SmartPlantCare/user/forms/signupForm.py:21
-#: SmartPlantCare/user/forms/signupForm.py:25
-#: SmartPlantCare/user/forms/signupForm.py:29
-#: SmartPlantCare/user/forms/signupForm.py:33
+#: SmartPlantCare/user/forms/signupForm.py:28
+#: SmartPlantCare/user/forms/signupForm.py:32
+#: SmartPlantCare/user/forms/signupForm.py:36
+#: SmartPlantCare/user/forms/signupForm.py:41
+#: SmartPlantCare/user/forms/signupForm.py:45
 msgid "This field cannot be empty."
 msgstr "Αυτό το πεδίο δε μπορεί να είναι κενό."
 
-#: SmartPlantCare/crop/forms/newCropForm.py:32
+#: SmartPlantCare/crop/forms/newCropForm.py:27
+#: SmartPlantCare/crop/forms/newCropForm.py:31
+#: SmartPlantCare/crop/forms/newCropForm.py:60
 msgid "This field must be between {min} and {max} characters"
 msgstr "Αυτό το πεδίο πρέπει να είναι από {min} έως {max} χαρακτήρες"
 
+#: SmartPlantCare/crop/forms/newCropForm.py:30
+msgid "Crop Location"
+msgstr "Τοποθεσία Καλλιέργειας"
+
+#: SmartPlantCare/crop/forms/newCropForm.py:34
+msgid "Crop Prefecture"
+msgstr "Νομός Καλλιέργειας"
+
 #: SmartPlantCare/crop/forms/newCropForm.py:36
-msgid "Crop plot"
-msgstr "Πλοκή Καλλιέργειας"
+#: SmartPlantCare/crop/forms/newCropForm.py:41
+msgid "This field takes values from 1 to 99"
+msgstr "Το πεδίο αυτό λαμβάνει τιμές από 1 έως 99"
 
-#: SmartPlantCare/crop/forms/newCropForm.py:38
-msgid "The text of the article must be at least {min} characters long"
-msgstr "Το κείμενο του άρθρου πρέπει να έχει μήκος τουλάχιστον {min} χαρακτήρες"
+#: SmartPlantCare/crop/forms/newCropForm.py:39
+msgid "The area of the crop"
+msgstr "Η περιοχή της Καλλιέργειας"
 
-#: SmartPlantCare/crop/forms/newCropForm.py:42
+#: SmartPlantCare/crop/forms/newCropForm.py:44
+msgid "The size of the crop"
+msgstr "Η έκταση της Καλλιέργειας"
+
+#: SmartPlantCare/crop/forms/newCropForm.py:46
+msgid "This field takes values from 1 to 1000"
+msgstr "Το πεδίο αυτό λαμβάνει τιμές από 1 έως 1000"
+
+#: SmartPlantCare/crop/forms/newCropForm.py:49
+msgid "The type of the crop"
+msgstr "Το είδος της Καλλιέργειας"
+
+#: SmartPlantCare/crop/forms/newCropForm.py:51
+#: SmartPlantCare/crop/forms/newCropForm.py:56
+msgid "This field takes values from 1 to 9"
+msgstr "Το πεδίο αυτό λαμβάνει τιμές από 1 έως 9"
+
+#: SmartPlantCare/crop/forms/newCropForm.py:54
+msgid "The soil type of the crop"
+msgstr "Το είδος εδάφους της Καλλιέργειας"
+
+#: SmartPlantCare/crop/forms/newCropForm.py:59
+msgid "Crop map"
+msgstr "Χάρτης Καλλιέργειας"
+
+#: SmartPlantCare/crop/forms/newCropForm.py:63
+msgid "Coordinates Type"
+msgstr "Τύπος συντεταγμένων"
+
+#: SmartPlantCare/crop/forms/newCropForm.py:64
+msgid "This field must be {min} characters"
+msgstr Το πεδίο αυτό λαμβάνει πρέπει να είναι {min} χαρακτήρες""
+
+#: SmartPlantCare/crop/forms/newCropForm.py:67
 msgid "Image file"
 msgstr "Αρχείο Εικόνας"
 
-#: SmartPlantCare/crop/forms/newCropForm.py:44
-#: SmartPlantCare/user/forms/accountUpdateForm.py:47
+#: SmartPlantCare/crop/forms/newCropForm.py:69
+#: SmartPlantCare/user/forms/accountUpdateForm.py:56
 msgid "Only jpg, jpeg and png image files are allowed!"
-msgstr "Επιτρέπονται μόνο αρχεία εικόνων τύπου jpg, jpeg και png!"
+msgstr "Επιτρέπονται μόνο αρχεία εικόνων jpg, jpeg και png!"
 
-#: SmartPlantCare/crop/forms/newCropForm.py:49
-msgid "Year of first projection of the crop"
-msgstr "Έτος πρώτης προβολής της καλλιέργειας"
-
-#: SmartPlantCare/crop/forms/newCropForm.py:51
-msgid "This field takes values from 1888 to the current year"
-msgstr "Αυτό το πεδίο παίρνει τιμές από το 1888 έως το τρέχον έτος"
-
-#: SmartPlantCare/crop/forms/newCropForm.py:55
-msgid "Crop Rating"
-msgstr "Βαθμολογία Καλλιέργειας"
-
-#: SmartPlantCare/crop/forms/newCropForm.py:57
-msgid "This field takes values from {min} to {max}"
-msgstr "Αυτό το πεδίο παίρνει τιμές από {min} έως {max}"
-
-#: SmartPlantCare/crop/forms/newCropForm.py:60
-#: SmartPlantCare/user/forms/accountUpdateForm.py:50
+#: SmartPlantCare/crop/forms/newCropForm.py:72
+#: SmartPlantCare/irrigation/forms/irrigationGraph.py:16
+#: SmartPlantCare/irrigation/forms/newBulletin.py:26
+#: SmartPlantCare/user/forms/accountUpdateForm.py:59
 msgid "Submit"
 msgstr "Υποβολή"
 
-#: SmartPlantCare/crop/templates/crop.html:34
-msgid "Edit"
-msgstr "Αλλαγή"
+#: SmartPlantCare/crop/templates/crop.html:26
+msgid "Location"
+msgstr "Τοποθεσία"
+
+#: SmartPlantCare/crop/templates/crop.html:26
+msgid "Size"
+msgstr "Έκταση"
+
+#: SmartPlantCare/crop/templates/crop.html:29
+msgid "Νομός"
+msgstr ""
+
+#: SmartPlantCare/crop/templates/crop.html:29
+#: SmartPlantCare/crop/templates/new_crop.html:60
+msgid "Area"
+msgstr "Περιοχή"
+
+#: SmartPlantCare/crop/templates/crop.html:32
+msgid "Crop type"
+msgstr "Είδος Καλλιέργειας"
+
+#: SmartPlantCare/crop/templates/crop.html:32
+msgid "Soil type"
+msgstr "Τύπος εδάφους Καλλιέργειας"
 
 #: SmartPlantCare/crop/templates/crop.html:35
+msgid "Live Weather"
+msgstr "Τρέχοντα δεδομένα καιρού"
+
+#: SmartPlantCare/crop/templates/crop.html:36
+msgid "Temperature Graph"
+msgstr "Διάγγραμα Θερμοκρασίας"
+
+#: SmartPlantCare/crop/templates/crop.html:37
+msgid "Rain Graph"
+msgstr "Διάγγραμα Βροχής"
+
+#: SmartPlantCare/crop/templates/crop.html:38
+msgid "Irrigation graph"
+msgstr "Διάγγραμα Άρδευσης"
+
+#: SmartPlantCare/crop/templates/crop.html:41
+msgid "Sensors"
+msgstr "Αισθητήρες"
+
+#: SmartPlantCare/crop/templates/crop.html:43
+msgid "Possition"
+msgstr "Τοποθεσία"
+
+#: SmartPlantCare/crop/templates/crop.html:43
+msgid "Longtitute"
+msgstr "Γεωγραφικό μήκος"
+
+#: SmartPlantCare/crop/templates/crop.html:43
+#: SmartPlantCare/sensor/templates/sensor_data.html:12
+msgid "Latitude"
+msgstr "Γεωγραφικό πλάτος"
+
+#: SmartPlantCare/crop/templates/crop.html:44
+msgid "Sensor Data"
+msgstr "Δεδομένα αισθητήρων"
+
+#: SmartPlantCare/crop/templates/crop.html:51
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+#: SmartPlantCare/crop/templates/crop.html:52
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: SmartPlantCare/crop/templates/crop.html:56
-#: SmartPlantCare/crop/templates/crops.html:98
-#: SmartPlantCare/crop/templates/crops_by_owner.html:101
-#: SmartPlantCare/crop/templates/my_crops.html:94
+#: SmartPlantCare/crop/templates/crop.html:55
+#: SmartPlantCare/crop/templates/crops.html:34
+#: SmartPlantCare/crop/templates/crops_by_owner.html:41
+#: SmartPlantCare/crop/templates/my_crops.html:34
+msgid "By"
+msgstr ""
+
+#: SmartPlantCare/crop/templates/crop.html:74
+#: SmartPlantCare/crop/templates/crops.html:80
+#: SmartPlantCare/crop/templates/crops_by_owner.html:89
+#: SmartPlantCare/crop/templates/my_crops.html:80
 msgid "No crop found"
 msgstr "Δε βρέθηκε καμμία καλλιέργεια"
 
-#: SmartPlantCare/crop/templates/crop.html:72
-#: SmartPlantCare/crop/templates/crop.html:84
+#: SmartPlantCare/crop/templates/crop.html:83
+#: SmartPlantCare/crop/templates/crop.html:94
 msgid "Delete crop"
 msgstr "Διαγραφή καλλιέργειας"
 
-#: SmartPlantCare/crop/templates/crop.html:76
+#: SmartPlantCare/crop/templates/crop.html:87
 msgid "Are you sure you want to delete this crop?"
 msgstr "Είστε σίγουρος/η ότι θέλετε να διαγράψετε αυτήν την καλλιέργεια;"
 
 #: SmartPlantCare/crop/templates/crops.html:4
-#: SmartPlantCare/templates/index.html:4
-msgid "Home Page"
-msgstr "Αρχική Σελίδα"
+#: SmartPlantCare/templates/navbar.html:6
+msgid "Crops"
+msgstr "Καλλιέργειες"
 
 #: SmartPlantCare/crop/templates/crops.html:9
 msgid "Crops from all users"
 msgstr "Καλλιέργειες από όλους τους χρήστες"
 
-#: SmartPlantCare/crop/templates/crops.html:15
-#: SmartPlantCare/crop/templates/crops_by_owner.html:17
-#: SmartPlantCare/crop/templates/my_crops.html:14
-msgid "Sorting by rating"
-msgstr "Ταξινόμηση βάσει βαθμολογίας"
+#: SmartPlantCare/crop/templates/crops.html:12
+#: SmartPlantCare/crop/templates/crops_by_owner.html:15
+#: SmartPlantCare/crop/templates/my_crops.html:12
+msgid "Sorting by name"
+msgstr "Ταξινόμηση βάσει ονόματος"
 
-#: SmartPlantCare/crop/templates/crops.html:16
-#: SmartPlantCare/crop/templates/crops_by_owner.html:18
-#: SmartPlantCare/crop/templates/my_crops.html:15
-msgid "Sorting by year of projection"
-msgstr "Ταξινόμηση βάσει έτους προβολής"
+#: SmartPlantCare/crop/templates/crops.html:13
+#: SmartPlantCare/crop/templates/crops_by_owner.html:16
+#: SmartPlantCare/crop/templates/my_crops.html:13
+msgid "Sorting by size"
+msgstr "Ταξινόμηση βάσει έκτασης"
 
 #: SmartPlantCare/crop/templates/crops_by_owner.html:4
 msgid "Crops of the"
@@ -170,25 +315,189 @@ msgstr "Καλλιέργειες απο το χρήστη"
 msgid "My Crops"
 msgstr "Οι καλλιέργειες μου"
 
-#: SmartPlantCare/crop/templates/new_crop.html:24
-msgid "Please enter the title of the crop."
-msgstr "Παρακαλώ εισάγετε τον τίτλο της καλλιέργειας."
+#: SmartPlantCare/crop/templates/new_crop.html:20
+msgid "Please enter the name of the crop."
+msgstr "Εισάγετε το όνομα της καλλιέργειας."
 
-#: SmartPlantCare/crop/templates/new_crop.html:37
-msgid "Please type the text of the crop's plot."
-msgstr "Παρακαλώ εισάγετε το κείμενο με την υπόθεση της καλλιέργειας."
+#: SmartPlantCare/crop/templates/new_crop.html:33
+msgid "Please enter the location of the crop."
+msgstr "Εισάγετε την τοποθεσία της καλλιέργειας."
 
-#: SmartPlantCare/crop/templates/new_crop.html:50
-msgid "Please type the year of the first projection of the crop."
-msgstr "Παρακαλώ εισάγετε το έτος πρώτης προβολής της καλλιέργειας."
+#: SmartPlantCare/crop/templates/new_crop.html:45
+msgid "Prefecture"
+msgstr "Νομός"
 
-#: SmartPlantCare/crop/templates/new_crop.html:63
-msgid "Please enter the rating of the crop (from 1 to 100)"
-msgstr "Παρακαλώ εισάγετε την βαθμολογία της καλλιέργειας (από το 1 έως το 100)"
+#: SmartPlantCare/crop/templates/new_crop.html:47
+msgid "Select prefecture"
+msgstr "Επιλέξτε νομό"
 
-#: SmartPlantCare/crop/templates/new_crop.html:76
+#: SmartPlantCare/crop/templates/new_crop.html:49
+msgid "Please enter the prefecture of the crop."
+msgstr "Εισάγετε το νομό της καλλιέργειας."
+
+#: SmartPlantCare/crop/templates/new_crop.html:62
+msgid "Select area"
+msgstr "Επιλέξτε περιοχή"
+
+#: SmartPlantCare/crop/templates/new_crop.html:64
+msgid "Please enter the area of the crop."
+msgstr "Εισάγετε την περιοχή της καλλιέργειας."
+
+#: SmartPlantCare/crop/templates/new_crop.html:77
+msgid "Select Crop Type"
+msgstr "Επιλέξτε είδος καλλιέργειας"
+
+#: SmartPlantCare/crop/templates/new_crop.html:86
+msgid "Please enter the type of the crop."
+msgstr "Εισάγετε το είδος της καλλιέργειας."
+
+#: SmartPlantCare/crop/templates/new_crop.html:99
+msgid "Select Soil Type"
+msgstr "Επιλέξτε είδος εδάφους"
+
+#: SmartPlantCare/crop/templates/new_crop.html:108
+msgid "Please enter the soil type of the crop."
+msgstr "Εισάγετε το είδος εδάφους της καλλιέργειας."
+
+#: SmartPlantCare/crop/templates/new_crop.html:121
+msgid "Please enter the size of the crop."
+msgstr "Εισάγετε το μέγεθος (έκταση) της καλλιέργειας."
+
+#: SmartPlantCare/crop/templates/new_crop.html:134
+msgid "Please enter the coordinates of the crop."
+msgstr "Εισάγετε τις συντεταγμένες της καλλιέργειας."
+
+#: SmartPlantCare/crop/templates/new_crop.html:147
+msgid "Select Coordinates Type"
+msgstr "Εισάγετε τις συντεταγμένες της καλλιέργειας."
+
+#: SmartPlantCare/crop/templates/new_crop.html:149
+msgid "EGSA87"
+msgstr "ΕΓΣΑ87"
+
+#: SmartPlantCare/crop/templates/new_crop.html:151
+msgid "Please enter the Coordinates type"
+msgstr "Εισάγετε τον τύπο των συντεταγμένων"
+
+#: SmartPlantCare/crop/templates/new_crop.html:164
 msgid "Please provide a picture of the crop."
 msgstr "Παρακαλώ δώστε μία εικόνα για την καλλιέργεια."
+
+#: SmartPlantCare/crop/templates/new_crop.html:188
+msgid "Select Prefecture..."
+msgstr "Επιλέξτε Νομό..."
+
+#: SmartPlantCare/crop/templates/new_crop.html:218
+msgid "Select area..."
+msgstr "Επιλέξτε περιοχή..."
+
+#: SmartPlantCare/irrigation/routes.py:27
+msgid "No CSV file part"
+msgstr "Δεν υπάρχει μέρος αρχείου CSV"
+
+#: SmartPlantCare/irrigation/routes.py:32
+msgid "No file uploaded"
+msgstr "Δεν έχει μεταφορτωθεί αρχείο"
+
+#: SmartPlantCare/irrigation/routes.py:39
+msgid "Only CSV files are allowed"
+msgstr "Επιτρέπονται μόνο αρχεία CSV"
+
+#: SmartPlantCare/irrigation/routes.py:41
+msgid "Bulletin data added (Date: from {start_date} to {end_date})"
+msgstr "Προστέθηκαν τα δεδομένα Δελτίου (Ημερομηνία: από {start_date} έως {end_date})"
+
+#: SmartPlantCare/irrigation/routes.py:78
+msgid "Irrigation"
+msgstr "Άρδευση"
+
+#: SmartPlantCare/irrigation/routes.py:78
+#: SmartPlantCare/irrigation/routes.py:87
+msgid "Date"
+msgstr "Ημερομηνία"
+
+#: SmartPlantCare/irrigation/routes.py:78
+msgid "Irrigation Needs (κ.μ./στρ.)"
+msgstr "Ανάγκες Άρδευσης (κ.μ./στρ.)"
+
+#: SmartPlantCare/irrigation/routes.py:88
+#: SmartPlantCare/irrigation/routes.py:97
+msgid "Irrigation Needs"
+msgstr "Ανάγκες Άρδευσης"
+
+#: SmartPlantCare/irrigation/routes.py:89
+#: SmartPlantCare/irrigation/routes.py:98
+msgid "Irrigation Dose"
+msgstr "Δόση Άρδευσης"
+
+#: SmartPlantCare/irrigation/forms/irrigationGraph.py:9
+msgid "Readings Graph Start Date"
+msgstr "Διάγραμμα Άρδευσης Ημερομηνία Έναρξης"
+
+#: SmartPlantCare/irrigation/forms/irrigationGraph.py:13
+msgid "Readings Graph End Date"
+msgstr "Διάγραμμα Άρδευσης Ημερομηνία Λήξης"
+
+#: SmartPlantCare/irrigation/forms/newBulletin.py:12
+msgid "Bulletin Start Date"
+msgstr "Ημερομηνία Έναρξης Δελτίου"
+
+#: SmartPlantCare/irrigation/forms/newBulletin.py:16
+msgid "Bulletin End Date"
+msgstr "Ημερομηνία Λήξης Δελτίου"
+
+#: SmartPlantCare/irrigation/forms/newBulletin.py:20
+msgid "CSV file"
+msgstr "Αρχείο CSV"
+
+#: SmartPlantCare/irrigation/forms/newBulletin.py:23
+msgid "Only CSV files are allowed!"
+msgstr "Επιτρέπονται μόνο αρχεία CSV!"
+
+#: SmartPlantCare/irrigation/templates/irrigation_graph.html:4
+msgid "Readings Graph"
+msgstr "Διάγραμμα Άρδευσης"
+
+#: SmartPlantCare/irrigation/templates/irrigation_graph_form.html:4
+#: SmartPlantCare/irrigation/templates/newBulletin.html:4
+#: SmartPlantCare/irrigation/templates/newBulletin.html:11
+msgid "New Region Bulletin"
+msgstr "Νέο Δελτίο Άρδευσης"
+
+#: SmartPlantCare/irrigation/templates/irrigation_graph_form.html:11
+msgid "Readings graph"
+msgstr "Διάγραμμα Άρδευσης"
+
+#: SmartPlantCare/irrigation/templates/irrigation_graph_form.html:19
+#: SmartPlantCare/irrigation/templates/newBulletin.html:19
+msgid "Please enter the start date (first day)"
+msgstr "Εισάγετε την ημερομηνία έναρξης (πρώτη ημέρα)"
+
+#: SmartPlantCare/irrigation/templates/irrigation_graph_form.html:32
+#: SmartPlantCare/irrigation/templates/newBulletin.html:32
+msgid "Please enter the end date (last day)"
+msgstr "Εισάγετε την ημερομηνία λήξης (τελευταία ημέρα)"
+
+#: SmartPlantCare/irrigation/templates/newBulletin.html:45
+msgid "Please provide a bulletin CSV file."
+msgstr "Παρακαλούμε δώστε ένα αρχείο δελτίου CSV."
+
+#: SmartPlantCare/sensor/templates/sensor_data.html:4
+#: SmartPlantCare/templates/index.html:4
+msgid "Home Page"
+msgstr "Αρχική Σελίδα"
+
+#: SmartPlantCare/sensor/templates/sensor_data.html:12
+msgid "Position"
+msgstr "Τοποθεσία"
+
+#: SmartPlantCare/sensor/templates/sensor_data.html:12
+msgid "Longitude"
+msgstr "Γεωγραφικό μήκος"
+
+#: SmartPlantCare/sensor/templates/sensor_data.html:13
+msgid "Sensor Value"
+msgstr "Τιμή αισθητήρα"
 
 #: SmartPlantCare/templates/404.html:4
 msgid "Error 404 Not Found"
@@ -218,10 +527,6 @@ msgstr "ERROR 500! Εσωτερικό Σφάλμα Εξυπηρετητή!"
 msgid "Welcome"
 msgstr "Καλώς ήλθατε"
 
-#: SmartPlantCare/templates/navbar.html:6
-msgid "Crops"
-msgstr "Καλλιέργειες"
-
 #: SmartPlantCare/templates/navbar.html:13
 msgid "My crops"
 msgstr "Οι καλλιέργειές μου"
@@ -230,85 +535,104 @@ msgstr "Οι καλλιέργειές μου"
 msgid "New Crop"
 msgstr "Νέα Καλλιέργεια"
 
-#: SmartPlantCare/templates/navbar.html:30
+#: SmartPlantCare/templates/navbar.html:19
+msgid "New Bulletin"
+msgstr "Νέο Δελτίο"
+
+#: SmartPlantCare/templates/navbar.html:33
 msgid "Logout"
 msgstr "Αποσύνδεση"
 
-#: SmartPlantCare/templates/navbar.html:39
-#: SmartPlantCare/user/forms/signupForm.py:37
+#: SmartPlantCare/templates/navbar.html:42
+#: SmartPlantCare/user/forms/signupForm.py:49
 #: SmartPlantCare/user/templates/signup.html:4
 msgid "Signup"
 msgstr "Εγγραφή"
 
-#: SmartPlantCare/templates/navbar.html:40
+#: SmartPlantCare/templates/navbar.html:43
 #: SmartPlantCare/user/forms/loginForm.py:17
 #: SmartPlantCare/user/templates/login.html:4
 msgid "Login"
 msgstr "Είσοδος"
 
-#: SmartPlantCare/user/routes.py:65
+#: SmartPlantCare/user/routes.py:59
 msgid "The account for user <b>{username}</b> was created successfully."
 msgstr "Ο λογαρισμός του χρήστη <b>{username}</b> δημιουργήθηκε με επιτυχία"
 
-#: SmartPlantCare/user/routes.py:99
+#: SmartPlantCare/user/routes.py:88
 msgid "The account of the user <b>{username}</b> was updated successfully."
 msgstr "Ο λογαρισμός του χρήστη <b>{username}</b> τροποποιήθηκε με επιτυχία"
 
-#: SmartPlantCare/user/routes.py:128
+#: SmartPlantCare/user/routes.py:115
 msgid "The login of the user with email: {email} to our website was successful."
 msgstr "Η είσοδος του χρήστη με email: {email} στη σελίδα μας έγινε με επιτυχία."
 
-#: SmartPlantCare/user/routes.py:135
+#: SmartPlantCare/user/routes.py:122
 msgid ""
 "User login was unsuccessful, please try again with the correct "
 "email/password."
 msgstr ""
 
-#: SmartPlantCare/user/routes.py:146
+#: SmartPlantCare/user/routes.py:133
 msgid "The user has been logged out."
 msgstr "Ο χρήστης αποσυνδέθηκε."
 
-#: SmartPlantCare/user/forms/accountUpdateForm.py:33
-#: SmartPlantCare/user/forms/accountUpdateForm.py:64
-#: SmartPlantCare/user/forms/signupForm.py:16
-#: SmartPlantCare/user/forms/signupForm.py:44
+#: SmartPlantCare/user/forms/accountUpdateForm.py:27
+#: SmartPlantCare/user/forms/accountUpdateForm.py:71
+#: SmartPlantCare/user/forms/signupForm.py:12
+#: SmartPlantCare/user/forms/signupForm.py:55
 msgid "This email already exists!"
 msgstr "Αυτό το email υπάρχει ήδη!"
 
-#: SmartPlantCare/user/forms/accountUpdateForm.py:36
-#: SmartPlantCare/user/forms/signupForm.py:20
+#: SmartPlantCare/user/forms/accountUpdateForm.py:32
+#: SmartPlantCare/user/forms/signupForm.py:17
+msgid "Invalid phone number."
+msgstr "Μη έγκυρος αριθμός τηλεφώνου."
+
+#: SmartPlantCare/user/forms/accountUpdateForm.py:41
+#: SmartPlantCare/user/forms/signupForm.py:27
 msgid "Username"
 msgstr "Username"
 
-#: SmartPlantCare/user/forms/accountUpdateForm.py:38
-#: SmartPlantCare/user/forms/signupForm.py:22
-#: SmartPlantCare/user/forms/signupForm.py:30
-#: SmartPlantCare/user/forms/signupForm.py:34
+#: SmartPlantCare/user/forms/accountUpdateForm.py:43
+#: SmartPlantCare/user/forms/signupForm.py:29
+#: SmartPlantCare/user/forms/signupForm.py:42
+#: SmartPlantCare/user/forms/signupForm.py:46
 msgid "This field must be between 3 and 15 characters"
 msgstr "Αυτό το πεδίο πρέπει να είναι από 3 έως 15 χαρακτήρες"
 
-#: SmartPlantCare/user/forms/accountUpdateForm.py:40
+#: SmartPlantCare/user/forms/accountUpdateForm.py:45
 #: SmartPlantCare/user/forms/loginForm.py:8
-#: SmartPlantCare/user/forms/signupForm.py:24
+#: SmartPlantCare/user/forms/signupForm.py:31
 msgid "Email"
 msgstr "Email"
 
-#: SmartPlantCare/user/forms/accountUpdateForm.py:42
+#: SmartPlantCare/user/forms/accountUpdateForm.py:47
 #: SmartPlantCare/user/forms/loginForm.py:10
-#: SmartPlantCare/user/forms/signupForm.py:26
+#: SmartPlantCare/user/forms/signupForm.py:33
 msgid "Please enter a valid email address"
 msgstr "Παρακαλώ εισάγετε μια σωστή διεύθυνση email"
 
-#: SmartPlantCare/user/forms/accountUpdateForm.py:45
-msgid "Crop image"
-msgstr "Αρχείο εικόνας"
+#: SmartPlantCare/user/forms/accountUpdateForm.py:49
+#: SmartPlantCare/user/forms/signupForm.py:35
+msgid "Mobile (+30)"
+msgstr "Κινητό (+30)"
 
-#: SmartPlantCare/user/forms/accountUpdateForm.py:57
+#: SmartPlantCare/user/forms/accountUpdateForm.py:51
+#: SmartPlantCare/user/forms/signupForm.py:37
+msgid "This field must be 10 characters"
+msgstr "Αυτό το πεδίο πρέπει να είναι 10 χαρακτήρες"
+
+#: SmartPlantCare/user/forms/accountUpdateForm.py:54
+msgid "Crop image"
+msgstr "Αρχείο εικόνας Καλλιέργειας"
+
+#: SmartPlantCare/user/forms/accountUpdateForm.py:65
 msgid "This username already exists!"
 msgstr "Αυτό το username υπάρχει ήδη!"
 
 #: SmartPlantCare/user/forms/loginForm.py:12
-#: SmartPlantCare/user/forms/signupForm.py:28
+#: SmartPlantCare/user/forms/signupForm.py:40
 msgid "Password"
 msgstr "Password"
 
@@ -316,11 +640,11 @@ msgstr "Password"
 msgid "Remember me"
 msgstr "Να με θυμάσαι"
 
-#: SmartPlantCare/user/forms/signupForm.py:32
+#: SmartPlantCare/user/forms/signupForm.py:44
 msgid "Confirm password"
 msgstr "Επιβεβαίωση password"
 
-#: SmartPlantCare/user/forms/signupForm.py:35
+#: SmartPlantCare/user/forms/signupForm.py:47
 msgid "The two password fields must be the same"
 msgstr "Τα δύο πεδία password πρέπει να είναι τα ίδια"
 
@@ -344,6 +668,11 @@ msgid "Please enter your email."
 msgstr "Παρακαλούμε εισάγετε το email σας."
 
 #: SmartPlantCare/user/templates/account_update.html:50
+#: SmartPlantCare/user/templates/signup.html:44
+msgid "Please enter your mobile phone number."
+msgstr "Παρακαλούμε εισάγετε τον αριθμό του κινητού σας τηλεφώνου."
+
+#: SmartPlantCare/user/templates/account_update.html:63
 msgid "Please enter your your profile image."
 msgstr "Παρακαλούμε εισάγετε την εικόνα προφίλ σας."
 
@@ -352,6 +681,23 @@ msgstr "Παρακαλούμε εισάγετε την εικόνα προφίλ
 msgid "Please enter your password."
 msgstr "Παρακαλούμε εισάγετε τον κωδικό σας."
 
-#: SmartPlantCare/user/templates/signup.html:57
+#: SmartPlantCare/user/templates/signup.html:11
+msgid "Signup Form"
+msgstr "Φόρμα Εγγραφής"
+
+#: SmartPlantCare/user/templates/signup.html:69
 msgid "Please enter your password again for validation."
 msgstr "Παρακαλούμε εισάγετε ξανά τον κωδικό σας για επιβεβαίωση."
+
+#: SmartPlantCare/weather/templates/rain_data.html:4
+msgid "Rain Data"
+msgstr "Δεδομένα Βροχής"
+
+#: SmartPlantCare/weather/templates/temperature_data.html:4
+msgid "Weather Data"
+msgstr "Δεδομένα Καιρού"
+
+#: SmartPlantCare/weather/templates/weather_data.html:4
+msgid "Live Weather Data"
+msgstr "Τρέχοντα Δεδομένα Καιρού"
+
