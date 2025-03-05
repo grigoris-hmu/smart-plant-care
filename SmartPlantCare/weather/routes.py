@@ -71,13 +71,13 @@ def temperature_graph(crop_id):
     crop = Crop.query.get_or_404(crop_id)
 
     weather_station = (
-            db.session.query(MonthlyWeather.DAY, MonthlyWeather.HIGH,MonthlyWeather.LOW,MonthlyWeather.MEAN_TEMP)
-            .order_by(MonthlyWeather.DAY.asc())
+            db.session.query(MonthlyWeather.day, MonthlyWeather.high,MonthlyWeather.low,MonthlyWeather.mean_temp)
+            .order_by(MonthlyWeather.day.asc())
             .filter(
-                    MonthlyWeather.DAY.isnot(None),
-                    MonthlyWeather.HIGH.isnot(None),
-                    MonthlyWeather.LOW.isnot(None),
-                    MonthlyWeather.MEAN_TEMP.isnot(None)
+                    MonthlyWeather.day.isnot(None),
+                    MonthlyWeather.high.isnot(None),
+                    MonthlyWeather.low.isnot(None),
+                    MonthlyWeather.mean_temp.isnot(None)
                  )
             .all()
     )
@@ -131,13 +131,13 @@ def rain_graph(crop_id):
     crop = Crop.query.get_or_404(crop_id)
 
     weather_station = (
-            db.session.query(MonthlyWeather.DAY, MonthlyWeather.MAX_RH,MonthlyWeather.MIN_RH,MonthlyWeather.RAIN)
-            .order_by(MonthlyWeather.DAY.asc())
+            db.session.query(MonthlyWeather.day, MonthlyWeather.max_rh,MonthlyWeather.min_rh,MonthlyWeather.rain)
+            .order_by(MonthlyWeather.day.asc())
             .filter(
-                    MonthlyWeather.DAY.isnot(None),
-                    MonthlyWeather.MAX_RH.isnot(None),
-                    MonthlyWeather.MIN_RH.isnot(None),
-                    MonthlyWeather.RAIN.isnot(None)
+                    MonthlyWeather.day.isnot(None),
+                    MonthlyWeather.max_rh.isnot(None),
+                    MonthlyWeather.min_rh.isnot(None),
+                    MonthlyWeather.rain.isnot(None)
                  )
             .all()
     )
