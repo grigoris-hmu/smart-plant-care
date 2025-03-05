@@ -35,16 +35,11 @@ def make_celery(app):
             'task': 'SmartPlantCare.celery.tasks.check_sensor_data_thresholds',
             'schedule': timedelta(seconds=CELERY_TIMEDELTA),  # (frequency of task)
         },
-    }
-
-    # Registering the periodic tasks(our Celery-beat schedule) -- watering execution
-    celery.conf.beat_schedule = {
-        'check-crop-watering-every-minute': {
-            'task': 'SmartPlantCare.celery.tasks.check_watering',
-            'schedule': timedelta(seconds=60),  # (frequency of task)
+        'check-crop-watering-every-minute': {   ##watering task.
+        'task': 'SmartPlantCare.celery.tasks.check_watering',
+        'schedule': timedelta(seconds=60),
         },
     }
-
 
 
     # Enable Flask's app context in tasks
